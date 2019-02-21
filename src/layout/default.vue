@@ -1,5 +1,5 @@
 <template>
-    <div class="default-page">
+    <div class="layout-default">
         <el-container>
             <el-header>
                 <my-header/>
@@ -13,9 +13,13 @@
 import MyHeader from '@/components/header/index.vue'
 
 export default {
-    components: {
-        MyHeader
-    }
+  components: {
+    MyHeader
+  }
 }
 </script>
+<style lang="scss">
+    @import '@/assets/css/public/layout.scss'
+</style>
+
 
