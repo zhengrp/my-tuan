@@ -25,3 +25,6 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 3.搜索列表：上中下，中间不一样
 
 公共结构模板（上中下结构）->layout
+header部分：
+    topBar:左右
+    searchBar:logo,input&button&a
