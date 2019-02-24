@@ -1,25 +1,29 @@
 <template>
     <div class="layout-default">
         <el-container>
-            <el-header>
+            <el-header height=''>
                 <my-header/>
             </el-header>
             <el-main>Main</el-main>
-            <el-footer>Footer</el-footer>
+            <el-footer height=''>
+                <my-footer></my-footer>
+            </el-footer>
         </el-container>
     </div>
 </template>
 <script>
 import MyHeader from '@/components/header/index.vue'
-
+import myFooter from '@/components/footer/index.vue'
 export default {
   components: {
-    MyHeader
+    MyHeader,
+    myFooter
   }
 }
 </script>
 <style lang="scss">
-    @import '@/assets/css/public/layout.scss'
+    @import '@/assets/css/public/index.scss';    
+    @import '@/assets/css/public/layout.scss';
 </style>
 
 

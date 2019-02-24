@@ -86,7 +86,7 @@
                                 <router-link to="/">农家院</router-link>                        
                             </dd>
                     </dl>
-                    <dl>
+                    <dl class="food">
                         <dt>吃美食</dt>
                          <dd>
                         <router-link to="/">我的订单</router-link>                        
@@ -111,7 +111,7 @@
                     </dd>    
                     </dl>    
                         
-                    <dl>
+                    <dl class="movie">
                         <dt>看电影</dt>
                          <dd>
                         <router-link to="/">热映电影</router-link>                        
@@ -123,7 +123,7 @@
                         <router-link to="/">热映口碑榜</router-link>                        
                     </dd>
                     <dd>
-                        <router-link to="/">最受期待</router-link>                        
+                        <router-link to="/">最受期待电影</router-link>                        
                     </dd>
                     <dd>
                         <router-link to="/">国内票房榜</router-link>                        
@@ -135,6 +135,26 @@
                         <router-link to="/">电影排行榜</router-link>                        
                     </dd>
                     </dl>
+                    <dl class="app">
+                        <dt>手机应用</dt>
+                    
+                        <dd>
+                            <img src="../../../src/assets/img/meituan.png" alt="#">                        
+                        </dd>
+                        <dd>
+                            <img src="../../../src/assets/img/waimai.png" alt="#">                        
+                        </dd>
+                        <dd>
+                            <img src="../../../src/assets/img/zhenguo.png" alt="#">                        
+                        </dd>
+                        <dd>
+                            <img src="../../../src/assets/img/dianping.png" alt="#">                        
+                        </dd>
+                        <dd>
+                            <img src="../../../src/assets/img/maoyan.png" alt="#">                        
+                        </dd>
+                    </dl>
+                    
                         
                     
                 </div>                

@@ -28,3 +28,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 header部分：
     topBar:左右
     searchBar:logo,input&button&a
+footer部分：footer-link，footer-copyright
