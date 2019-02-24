@@ -4,7 +4,9 @@
             <el-header height=''>
                 <my-header/>
             </el-header>
-            <el-main>Main</el-main>
+            <el-main>
+                <router-view></router-view>
+            </el-main>
             <el-footer height=''>
                 <my-footer></my-footer>
             </el-footer>
