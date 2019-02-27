@@ -1,7 +1,7 @@
 <template>
     <div class="slide">
         <el-carousel>
-            <el-carousel-item v-for="item in imgList" :key="item">
+            <el-carousel-item v-for="(item,index) in imgList" :key="index">
                 <img :src="item.img" alt="#">
             </el-carousel-item>
         </el-carousel>

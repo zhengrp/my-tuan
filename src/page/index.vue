@@ -10,7 +10,7 @@
         </el-row>
         <el-row>
             <el-col :span="24">
-                container
+                <container></container>
             </el-col>
         </el-row>
     </div>
@@ -18,10 +18,13 @@
 <script>
 import MMenu from '@/components/index/menu.vue'
 import MLife from '@/components/index/life.vue'
+import Container from '@/components/index/container.vue'
+
 export default {
     components:{
         MMenu,
-        MLife
+        MLife,
+        Container
     }
 }
 </script>

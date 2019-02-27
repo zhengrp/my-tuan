@@ -1,14 +1,17 @@
 <template>
     <div class="m-menu" >
+        <!-- 菜单区域绑定鼠标进入事件，触发menuLeave，渲染detail -->
         <dl class="nav" @mouseleave="menuLeave">
             <dt>全部分类</dt>
-            <dd v-for="(item,index) in menuList" key ="index" @mouseenter="menuEnter(item)" >
+            <!-- 循环渲染菜单列表，绑定移出事件，去除detail区域 -->
+            <dd v-for="(item,index) in menuList" :key ="index" @mouseenter="menuEnter(item)" >
                 <i :class="item.icon"></i>{{item.title}}
                 <span class="arrow"></span>
             </dd> 
         </dl>
-        <div v-if="curDetail" class="detail">
-            <template v-for="(item,index) in curDetail.children" @mouseenter="detailEnter" @mouseleave="datalLeave">
+        <!-- 根据curDetail条件渲染detail -->
+        <div v-if="curDetail" class="detail" @mouseenter="detailEnter" @mouseleave="detailLeave">
+            <template v-for="(item,index) in curDetail.children" >
                 <h2 :key="index">{{item.title}}</h2>
                 <span v-for="(v,i) in item.children" :key="v + '_' + i">{{v}}</span>
             </template>
@@ -49,9 +52,11 @@ export default {
         }
     },
     methods: {
+        // 移入列表触发函数
         menuEnter(item){
             this.curDetail = item
         },
+        // 移出列表触发函数        
         menuLeave() {
             let self = this
             this.timer = setTimeout(function() {
@@ -59,8 +64,10 @@ export default {
             }, 200);
         },
         detailEnter(){
+            // let self = this
             clearTimeout(this.timer)
-        },datalLeave() {
+        },
+        detailLeave() {
             this.curDetail =null
         }
     }
