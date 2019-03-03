@@ -31,4 +31,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     footer部分：footer-link，footer-copyright
 
 首页：上部区域，下部区域
-上部区域：
+上部区域：menu,slider,life
+下部区域：container
+
+切换城市：changeCity

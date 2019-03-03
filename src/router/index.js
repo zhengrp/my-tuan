@@ -5,6 +5,7 @@ import defaultPage from '@/layout/default.vue'
 import blankPage from '@/layout/blank.vue'
 import goodsList from '@/page/goodsList.vue'
 import index from '@/page/index.vue'
+import ChangeCity from '@/page/changeCity.vue'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
         path: '/index',
         name: 'index',
         component: index
+      },
+      {
+        path: '/changeCity',
+        name: 'changeCity',
+        component: ChangeCity
       }]
     },
     {

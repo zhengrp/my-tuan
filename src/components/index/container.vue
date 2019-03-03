@@ -14,7 +14,8 @@
                     <div class="cbody">
                         <div class="title" :title="item.title">{{item.title}}</div>
                         <div class="sub-title" :title="item.subTitle">{{item.subTitle}}</div>
-                        <div class="price-info" v-if="item.price_info.current_price">
+                        <!-- 显示价格 -->
+                        <div class="price-info" v-if="item.rentNum && item.price_info.current_price">
                             <span class="current-price-wrapper">
                                 <span class="price-symbol numfont">¥</span>
                                 <span class="current-price numfont">{{item.price_info.current_price}}</span>
@@ -22,12 +23,20 @@
                             <span class="old-price">门市价¥{{item.price_info.old_price}}</span>
                             <span class="sold bottom-right-info">{{item.address}}</span>
                         </div>
-                        <!--<div class="price-info" v-else-if="!item.rentNum">
+                        <!-- rentNu为0是显示抢光了 -->
+                        <div class="price-info" v-else-if="!item.rentNum">
                             <span class="current-price-wrapper">
                                 <span class="price-symbol numfont">¥</span>
                                 <span class="current-price numfont">抢光了</span>
                             </span>
-                        </div> -->
+                        </div>
+                        <div class="price-info" v-else>
+                            <span class="current-price-wrapper">
+                                <span class="price-symbol numfont">¥</span>
+                                <span class="current-price numfont">{{item.avg_price}}</span>
+                                <span class="units">/{{item.units}}人均</span>
+                            </span>
+                        </div>
                     </div> 
                 </el-card>
             </li>
@@ -48,7 +57,22 @@ export default {
                     current_price: 18,
                     old_price: 20
                 },
-                address: "春熙路"
+                address: "春熙路",
+                rentNum: 0,
+                    avg_price: null,
+                    units: null
+            },
+            {
+                image: "http://p1.meituan.net/msmerchant/e3213ac45dcba972ffee3619ced7f53437609.jpg",
+                title: "木马森林cake（春熙路店）",
+                sub_title: "小清新鲜奶蛋糕1个，约6英寸，圆形",
+                price_info: {
+                    old_price: 20
+                },
+                address: "春熙路",
+                rentNum: 10,
+                    avg_price: 41,
+                    units: 22
             }]
         }
     },
