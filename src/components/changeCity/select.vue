@@ -9,7 +9,7 @@
                 <h2>{{value}}</h2>
                 <div class="wrapper">
                     <div class="col">
-                        <span class="mt-item" v-for="(item,index) in list" :key="index">
+                        <span :class="{'mt-item':true,'active':item == value}" v-for="(item,index) in list" :key="index" @click="changeValue(item)">
                             {{item}}
                         </span>
                     </div>
@@ -47,6 +47,9 @@ export default {
             
         },
         disper(){
+
+        },
+        changeValue(item){
 
         }
     }
