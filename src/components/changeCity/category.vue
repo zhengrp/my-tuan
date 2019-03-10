@@ -29,14 +29,28 @@ export default {
             "name": "北京",
             "pingyin":"beijing",
             "rank": "S",
-            "fristChar": "B"
+            "fristChar": "b"
+        },
+        {
+            "id": 3,
+            "name": "成都",
+            "pingyin":"chengdu",
+            "rank": "C",
+            "fristChar": "c"
+        },
+        {
+            "id": 2,
+            "name": "兰州",
+            "pingyin":"lanzhou",
+            "rank": "L",
+            "fristChar": "l"
         }]
         var obj = {}
         data.forEach((item,index) =>{ //将数据按首字母分组
-            if(!obj[item.fristChar]){
-                obj[item.fristChar]=[]
+            if(!obj[item.fristChar.toUpperCase()]){
+                obj[item.fristChar.toUpperCase()]=[]
             }
-            obj[item.fristChar].push(item)
+            obj[item.fristChar.toUpperCase()].push(item)
         })
         // console.log(obj)
         this.cityGroup = obj;

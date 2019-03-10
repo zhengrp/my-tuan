@@ -6,7 +6,7 @@
             </el-col>
             <el-col :span="15" class="center">
                     <div class="wrapper">
-                        <el-input v-model="searchWord" placeholder="搜索商家或小甜甜" @focus="focus" @blur="blur"></el-input>
+                        <el-input v-model="searchWord" placeholder="搜索商家或小甜甜" @focus="focus" @blur="blur" @input="inputWord"></el-input>
                         <el-button type="primary" icon="el-icon-search"></el-button>
                         <dl class="hotPlace" v-if="isHotPlace" >
                             <dt>热门搜索</dt>
@@ -16,12 +16,12 @@
                         </dl>
                         <dl class="searchList" v-if="isSearchList">
                             <dd v-for="(item,index) in searchList" :key="index">
-                                <router-link to="/s">{{item}}</router-link>
+                                <router-link :to="{name: 'goods',params:{name:item}}">{{item}}</router-link>
                             </dd>
                         </dl>
                     </div>
                     <p class="suggest">
-                        <a href="#" v-for="(item,index) in suggestList" :key="index">{{item}}</a>
+                        <router-link :to="{name: 'goods',params:{name:item}}" v-for="(item,index) in suggestList" :key="index">{{item}}</router-link>
                     </p>
             </el-col>
         </el-row>
@@ -57,6 +57,9 @@ export default {
             self.isFocus = false              
           },500)
           console.log(222)
+      },
+      inputWord(){
+
       }
   }
 };

@@ -30,7 +30,7 @@ Vue.use(ElementUI)
 new Vue({
   el: '#app',
   router,
-  store,
+  store, 
   components: { App },
   template: '<App/>'
 })

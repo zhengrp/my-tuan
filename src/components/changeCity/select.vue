@@ -2,14 +2,16 @@
     <!-- 自定义指令 -->
     <div class="choose-wrap" @click="showwrapper" v-document-click="documentClick">
         <div class="choose">
-            <span>{{title}}</span>
+            <span>{{value}}</span>
             <i class="el-icon-caret-bottom"></i>
             <!-- 根据active值动态添加 -->
             <div :class="{'mt-content':true,'active':showWrapperActive}">
-                <h2>{{value}}</h2>
+                <h2>{{title}}</h2>
                 <div class="wrapper">
                     <div class="col">
-                        <span :class="{'mt-item':true,'active':item == value}" v-for="(item,index) in list" :key="index" @click="changeValue(item)">
+                        <!-- 下拉列表添加点击事件更新value -->
+                        <span :class="{'mt-item':true,'active':item == value}" v-for="(item,index) in list" :key="index" 
+                        @click="changeValue(item)">
                             {{item}}
                         </span>
                     </div>
@@ -46,11 +48,11 @@ export default {
             // console.log('documentClick---')
             
         },
-        disper(){
+        // disper(){
 
-        },
+        // },
         changeValue(item){
-
+            this.$emit('chenge',item)
         }
     }
 }

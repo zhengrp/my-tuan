@@ -20,18 +20,21 @@ npm run build --report
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-页面：1.首页：头部 （导航条、搜索框），内容展示区，底部信息栏；
+页面：
 2.切换城市：上中下，中间不一样
 3.搜索列表：上中下，中间不一样
 
-公共结构模板（上中下结构）->layout
+1.公共结构模板:layout->头部 （导航条、搜索框），，底部信息栏；
     header部分：
         topBar:左右
         searchBar:logo,input&button&a
     footer部分：footer-link，footer-copyright
 
-首页：上部区域，下部区域
-上部区域：menu,slider,life
-下部区域：container
-
-切换城市：changeCity
+2.首页：index
+        上部部部区域：menu,slider,life
+        下部区域container： tab+card
+        
+3.切换城市：changeCity
+    province+select,hot,最近访问,categroys
+4.产品搜索列表：crumbs,categroy+select（分类&区域）,productList
+    

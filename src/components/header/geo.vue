@@ -2,7 +2,7 @@
     <div class="m-geo">
         <div class="position">
             <i class="el-icon-location"/>
-            成都
+            {{$store.state.position}}
             <router-link class="changCity" :to="{name: 'changeCity'}">切换城市</router-link>
             [
             <a href="#">天府新区</a>

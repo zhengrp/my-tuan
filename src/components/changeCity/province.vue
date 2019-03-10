@@ -3,9 +3,11 @@
         <span class="name">按省份选择</span>
         <!-- 向子组件select传值 -->
         <m-select :list="provinceList" title="省份" :value="province" :showWrapperActive="provinceActive"
-        @change_active="changeProvActive"></m-select>
+            @change_active="changeProvActive"
+            @chenge="chengeProvince"></m-select>
         <m-select :list="cityList" title="城市" :value="city" :showWrapperActive="cityActive"
-        @change_active="changeCityActive"></m-select>
+            @change_active="changeCityActive"
+            @chenge="chengeCity"></m-select>
         <span>直接搜索</span>
         <el-select
             v-model="searchWord"
@@ -55,6 +57,12 @@ export default {
             if(flag){
                 this.provinceActive = false
             }
+        },
+        chengeProvince(value){
+            this.province = value
+        },
+        chengeCity(value){
+            this.city = value
         },
         remoteMethod(val){
             // console.log(this.searchWord,val);

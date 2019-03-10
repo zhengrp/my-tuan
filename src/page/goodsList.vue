@@ -4,18 +4,33 @@
             <crumbs/>
         </el-row>
         <el-row>
-            <el-col :span="19"></el-col>
+            <el-col :span="19">
+                <el-row>
+                    <categroy/>   
+                </el-row>  
+                <el-row>
+                    <list/>    
+                </el-row>           
+            </el-col>
             <el-col :span="5">
-                map + fav
+                <div class="tencent_map">
+                    <img src="@/assets/img/ditu.png" alt="腾讯地图">
+                </div>
+                猜你喜欢
             </el-col>
         </el-row>
     </div>
 </template>
 <script>
 import crumbs from '@/components/products/crumbs.vue'
+import Categroy from '@/components/products/categroy.vue'
+import List from '@/components/products/list.vue'
+
 export default {
     components:{
-        crumbs
+        crumbs,
+        Categroy,
+        List
     }
 }
 </script>
