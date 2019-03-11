@@ -1,14 +1,20 @@
 <template>
+
     <div class="m-istyle">
-        <dl @mouseover="over">
-            <dt >全部</dt>
-            <dd :class="{active:kind == 'all'}" data="all">有格调</dd>
-            <dd :class="{active:kind == 'spa'}" data="spa">丽人SPA</dd>
+        
+        <dl @mouseover="over" :class="nav.class">
+            <!--  -->
+            <dt >{{nav.title}}</dt>
+            <dd v-for="(item,index) in nav.list" :key="index" 
+                :class="{active:kind == item.tab}" 
+                :data-type="item.tab">{{item.text}}</dd>
+
+            <!-- <dd :class="{active:kind == 'spa'}" data="spa">丽人SPA</dd>
             <dd :class="{active:kind == 'movie'}" data="movie">电影演出</dd>
-            <dd :class="{active:kind == 'tarvel'}" data="tarvel">品质出游</dd>
-        </dl>
+            <dd :class="{active:kind == 'tarvel'}" data="tarvel">品质出游</dd>-->
+        </dl> 
         <ul class="ibody">
-            <li v-for="(item,index) in list" :key="index">
+            <li v-for="(item,index) in resultsData[kind]" :key="index">
                 <el-card :body-style="{ padding: '0px' }" shadow="never">
                     <img :src="item.image" class="image">
                     <div class="cbody">
@@ -24,17 +30,19 @@
                             <span class="sold bottom-right-info">{{item.address}}</span>
                         </div>
                         <!-- rentNu为0是显示抢光了 -->
-                        <div class="price-info" v-else-if="!item.rentNum">
+                        <div class="price-info" v-else-if="!item.price">
                             <span class="current-price-wrapper">
                                 <span class="price-symbol numfont">¥</span>
                                 <span class="current-price numfont">抢光了</span>
+                                <span class="sold bottom-right-info">{{item.address}}</span>
                             </span>
                         </div>
                         <div class="price-info" v-else>
                             <span class="current-price-wrapper">
                                 <span class="price-symbol numfont">¥</span>
-                                <span class="current-price numfont">{{item.avg_price}}</span>
+                                <span class="current-price numfont">{{item.price}}</span>
                                 <span class="units">/{{item.units}}人均</span>
+                                <span class="sold bottom-right-info">{{item.address}}</span>
                             </span>
                         </div>
                     </div> 
@@ -45,6 +53,7 @@
     </div>
 </template>
 <script>
+import api from '@/api/index.js'
 export default {
     data(){
         return {
@@ -73,12 +82,30 @@ export default {
                 rentNum: 10,
                     avg_price: 41,
                     units: 22
-            }]
+            }],
+            resultsData:{}
         }
     },
+    props:[
+        'nav'
+    ],
+    created(){
+        api.getResultProducts().then(res =>{
+            // console.log(res);
+            this.resultsData = res.data.data
+            // this.list = res.data.data.all 
+        })
+    },
+    // 鼠标hover
     methods: {
-        over (){
-
+        over (e){
+           let dom = e.target 
+           let tagName = dom.tagName.toLowerCase()
+           if (tagName != 'dd'){
+               return false
+           }
+           this.kind = dom.getAttribute("data-type")
+        //    获取数据请求
         }
     }
 }

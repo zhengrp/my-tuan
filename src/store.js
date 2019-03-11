@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 // 公共数据池
 const state ={
-    position:'成都'
+    position:'北京'
 }
 // 操作state
 const mutation ={

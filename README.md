@@ -21,8 +21,6 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 页面：
-2.切换城市：上中下，中间不一样
-3.搜索列表：上中下，中间不一样
 
 1.公共结构模板:layout->头部 （导航条、搜索框），，底部信息栏；
     header部分：
