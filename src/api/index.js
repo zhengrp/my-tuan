@@ -23,5 +23,34 @@ var api = {
     getProductsList(params){
         return axios.get('/list/goodsList.json',params)
     },
+    // 热门城市
+    getHotCity(params){
+        return axios.get('/city/hot.json',params)
+    },
+    // 最近访问城市
+    getLastCity(params){
+        return axios.get('/city/recents.json',params)
+    },
+    // 
+    getCityList(params){
+        return axios.get('/city/cityList.json',params)
+    },
+    // 分类列表
+    getGroupList(params){
+        return axios.get('/list/classify.json',params)
+    },
+    // getAreaList
+    // getAreaList(params){
+    //     return axios.get('/list/areaList.json',params)
+    // },
+    // 
+    // 按省份列表
+    getProcinceList(params){
+        return axios.get('/city/province.json',params)
+    },
+    //  当前位置信息
+    getCurPosition(params){
+        return axios.get('/city/getPosition.json',params)
+    },
 }
 export default api

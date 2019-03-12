@@ -7,7 +7,7 @@
             <el-col :span="15" class="center">
                     <div class="wrapper">
                         <el-input v-model="searchWord" placeholder="搜索商家或小甜甜" @focus="focus" @blur="blur" @input="inputWord"></el-input>
-                        <el-button type="primary" icon="el-icon-search"></el-button>
+                        <el-button type="primary" icon="el-icon-search" @click="toProductsList()"></el-button>
                         <dl class="hotPlace" v-if="isHotPlace" >
                             <dt>热门搜索</dt>
                             <dd v-for="(item,index) in hotPlaceList" :key="index">
@@ -82,12 +82,15 @@ export default {
           // console.log(this.searchWord);
           let val = this.searchWord
           api.getSerchWord().then(res =>{
-        //   console.log(res)
-        this.searchList=res.data.data.list.filter((item,index) =>{
-          return item.indexOf(val) > -1
+          //   console.log(res)
+          this.searchList=res.data.data.list.filter((item,index) =>{
+            return item.indexOf(val) > -1
+          })
         })
-      })
-      }
+      },
+      toProductsList(){            // 跳转
+            this.$router.push({name: "goods",params:{name: this.searchWord}})
+        }
   }
 };
 </script>

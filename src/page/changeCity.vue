@@ -18,12 +18,27 @@
 import Province from '@/components/changeCity/province.vue'
 import Hot from '@/components/changeCity/hot.vue'
 import Category from '@/components/changeCity/category.vue'
+import api from '@/api/index.js'
 export default {
     data(){
         return {
-            hotList: ["兰州","金昌","白银","天水","武威","张掖","平凉","酒泉","庆阳","定西","陇南"],
-            rencentList:["兰州","陇南"]
+            // hotList: ["兰州","金昌","白银","天水","武威","张掖","平凉","酒泉","庆阳","定西","陇南"],
+            hotList: [],
+            // rencentList:["兰州","陇南"]
+            rencentList:[]
         }
+    },
+    created(){
+        api.getHotCity().then(res => {
+            // console.log(res);            
+            this.hotList = res.data.data.map((item) =>item.name)
+
+        })
+        api.getLastCity().then(res => {
+            // console.log(res);            
+            this.rencentList = res.data.data.map((item) =>item.name)
+        })
+        
     },
     components: {
         Province,

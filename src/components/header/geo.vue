@@ -2,12 +2,12 @@
     <div class="m-geo">
         <div class="position">
             <i class="el-icon-location"/>
-            {{$store.state.position}}
+            {{$store.state.position.name}}
             <router-link class="changCity" :to="{name: 'changeCity'}">切换城市</router-link>
             [
-            <a href="#">天府新区</a>
-            <a href="#">城关区</a>
-            <a href="#">算法镇</a>
+            <a href="#" v-for="(item,index) in nearCity" :key="index">{{item.name}}</a>
+            <!-- <a href="#">城关区</a>
+            <a href="#">算法镇</a> -->
             ]
         </div>
         <div class="m-user">
@@ -18,7 +18,24 @@
 </template>
 
 <script>
+import api from '@/api/index.js'
 export default {
-    
+    data(){
+        return {
+            nearCity: []
+        }
+    },
+    watch: {
+        "$store.state.position": function(){
+            this.nearCity = this.$store.state.position.nearCity
+        }
+    },
+    created(){
+        api.getCurPosition().then(res => {
+            this.$store.dispatch('setPosition',res.data.data)
+            // console.log(111,res.data.data);           
+            this.nearCity = res.data.data.nearCity
+        })
+    }   
 }
 </script>

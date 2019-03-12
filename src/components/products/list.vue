@@ -69,7 +69,7 @@ export default {
   },
   created(){
     api.getProductsList().then(res =>{
-      console.log(res.data.data)
+      // console.log(res.data.data)
       this.productList = res.data.data
     })
   },

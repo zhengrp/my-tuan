@@ -4,10 +4,10 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 // 公共数据池
 const state ={
-    position:'北京'
+    position: {}
 }
 // 操作state
-const mutation ={
+const mutations ={
     setPosition(state,val){
         state.position = val
     }
@@ -22,6 +22,6 @@ const actions = {
 // 导出vuex实例
 export default new Vuex.Store({
     state,
-    mutation,
+    mutations,
     actions
 })

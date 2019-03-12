@@ -2,10 +2,19 @@
     <div class="">
         <span class="name">按省份选择</span>
         <!-- 向子组件select传值 -->
-        <m-select :list="provinceList" title="省份" :value="province" :showWrapperActive="provinceActive"
+        <m-select 
+            :list="provinceList" title="省份" 
+            :value="province" 
+            :showWrapperActive="provinceActive"
+            className="province"
             @change_active="changeProvActive"
             @chenge="chengeProvince"></m-select>
-        <m-select :list="cityList" title="城市" :value="city" :showWrapperActive="cityActive"
+        <m-select 
+            :list="cityList" title="城市" 
+            :value="city" 
+            :showWrapperActive="cityActive"
+            :disabled="cityDisabled"
+            className="city"
             @change_active="changeCityActive"
             @chenge="chengeCity"></m-select>
         <span>直接搜索</span>
@@ -29,6 +38,8 @@
 </template>
 <script>
 import MSelect from './select.vue'
+import api from '@/api/index.js'
+
 export default {
     data(){
         return {
@@ -39,15 +50,27 @@ export default {
             provinceActive:false,
             searchList: ["兰州","金昌","白银","天水","武威","张掖","平凉","酒泉","庆阳","定西","陇南","临夏"],
             searchWord:'',
-            loading:false
+            loading:false,
+            cityDisabled: true
         }
     },
     components: {
         MSelect
     },
+    created(){
+        api.getProcinceList().then(res => {
+            this.provinceList = res.data.data.map(item => {
+                item.name = item.provinceName
+                return item
+            }) 
+            // console.log(this.provinceList);
+        })
+        
+    },
     methods:{
         changeProvActive(flag){
             this.provinceActive = flag
+           
             if(flag){
                 this.cityActive = false
             }
@@ -59,10 +82,14 @@ export default {
             }
         },
         chengeProvince(value){
-            this.province = value
+            this.province = value.name
+            this.cityDisabled = false
+            this.cityList = value.cityInfoList
         },
         chengeCity(value){
-            this.city = value
+            this.city = value.name
+            this.$store.dispatch('setPosition',value)
+            this.$router.push({name: 'index'})
         },
         remoteMethod(val){
             // console.log(this.searchWord,val);

@@ -60,6 +60,9 @@
               border-bottom: 6px solid #E5E5E5;
           }
           .wrapper {
+            &.city{
+              width: 665px;
+            }
             &::after{
               content: " ";
               visibility: hidden;
