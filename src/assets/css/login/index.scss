@@ -54,9 +54,13 @@
         }
         .reg {
           padding-top: 10px;
-        }
-        .signup-guide {
           font-size: 14px;
+          a {
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
         }
         .oauth-wrapper {
             margin-top: 20px;

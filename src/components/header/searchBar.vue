@@ -2,7 +2,7 @@
     <div class="search-panel">
         <el-row class="m-header-searchbar">
             <el-col :span="3" class="left">
-                <img src="@/assets/img/m-logo.png" alt="#">
+            <router-link :to="{name: 'index'}"><img src="@/assets/img/m-logo.png" alt="#"></router-link>                
             </el-col>
             <el-col :span="15" class="center">
                     <div class="wrapper">

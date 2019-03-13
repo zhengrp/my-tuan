@@ -1,7 +1,10 @@
 .page-index{
+  .el-row{
+    position: relative;
+    top: 20px;
     .m-menu {
       width: 230px;
-      height: 475px;
+      height: 495px;
       box-sizing: border-box;
       margin-top: -50px;
       margin-left: 20px;
@@ -209,10 +212,11 @@
         height: 240px;
       }
     }
+  }
 }
 
 .m-header {
   .search-panel {
-    padding-bottom: 35px;
+    // padding-bottom: 35px;
   }
 }
