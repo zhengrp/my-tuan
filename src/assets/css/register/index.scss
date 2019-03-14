@@ -47,10 +47,30 @@
     min-height: 300px;
     padding-right: 550px;
     box-sizing: border-box;
-
+    .letter {
+      position: relative;
+      top: 5px;
+      left: 0;
+      span {
+          display: block;
+          float: left;
+          text-align: center;
+          font-size: 12px;
+          height: 20px;
+          line-height: 20px;
+          width: 108px;
+          border-right: 2px solid #fff;
+          background-color: #eee;
+          color: #fff;
+      }
+    }
+    .el-button--primary {
+      background-color: #2bb8aa;
+      border-color: #2bb8aa;
+    }
     .status {
       font-size: 12px;
-      margin-left: 20px;
+      // margin-left: 20px;
       color: #e6a23c;
     }
 

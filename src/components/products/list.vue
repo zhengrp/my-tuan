@@ -71,6 +71,7 @@ export default {
     api.getProductsList().then(res =>{
       // console.log(res.data.data)
       this.productList = res.data.data
+      
     })
   },
   components: {

@@ -39,7 +39,7 @@ var api = {
     getGroupList(params){
         return axios.get('/list/classify.json',params)
     },
-    // getAreaList
+    // getAreaList 接口数据格式异常暂不调用
     // getAreaList(params){
     //     return axios.get('/list/areaList.json',params)
     // },
@@ -52,5 +52,8 @@ var api = {
     getCurPosition(params){
         return axios.get('/city/getPosition.json',params)
     },
+    login(params){
+        return axios.get('/login', params )
+    }
 }
 export default api

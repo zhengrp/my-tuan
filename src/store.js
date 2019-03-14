@@ -4,7 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 // 公共数据池
 const state ={
-    position: {}
+    position: {},
+    // productList:[]
 }
 // 操作state
 const mutations ={

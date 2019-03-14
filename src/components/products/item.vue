@@ -5,7 +5,7 @@
         </dt>
         <dd>
             <h3>
-                <router-link :to="{name: 'productDeatil'}">{{meta.title}}</router-link>
+                <router-link :to="{name: 'productDeatil'}" target="_blank">{{meta.title}}</router-link>
             </h3>
             <p >
                 <el-rate

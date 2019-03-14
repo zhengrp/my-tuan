@@ -8,7 +8,7 @@ import index from '@/page/index.vue'
 import ChangeCity from '@/page/changeCity.vue'
 import Login from '@/page/login.vue'
 import Register from '@/page/register.vue'
-
+import ProductDeatil from '@/page/productDeatil.vue'
 
 Vue.use(Router)
 
@@ -33,6 +33,11 @@ export default new Router({
         path: '/changeCity',
         name: 'changeCity',
         component: ChangeCity
+      },
+      {
+        path: '/productDeatil',
+        name: 'productDeatil',
+        component: ProductDeatil
       }]
     },
     {
