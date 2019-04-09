@@ -10,7 +10,7 @@
             <a href="#">算法镇</a> -->
             ]
         </div>
-        <div class="m-user">
+        <div class="m-user" v-if="!$store.state.userName">
             <router-link class="login" :to="{name: 'login'}">立即登陆</router-link>
             <router-link class="register" :to="{name: 'register'}">注册</router-link>            
         </div>

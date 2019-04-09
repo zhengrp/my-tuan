@@ -34,13 +34,13 @@
                     <h4>
                         <img src="//s0.meituan.net/bs/fe-web-meituan/2d05c2b/img/avatar.jpg" alt="">                        
                     </h4>
-                    <p class="m-life-login-name">Hi,你好</p>
-                    <p>
-                        <router-link :to="{name: 'register'}">
+                    <p class="m-life-login-name">Hi,{{$store.state.userName ? $store.state.userName : "你好"}}</p>
+                    <p v-if="!$store.state.userName">
+                        <router-link :to="{name: 'register'}" >
                             <el-button round>注册</el-button>
                         </router-link >
                     </p>
-                    <p>
+                    <p v-if="!$store.state.userName">
                         <router-link :to="{name: 'login'}">
                             <el-button round>登录</el-button>
                         </router-link>

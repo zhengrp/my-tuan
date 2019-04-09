@@ -35,4 +35,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 3.切换城市：changeCity
     province+select,hot,最近访问,categroys
 4.产品搜索列表：crumbs,categroy+select（分类&区域）,productList
-    
+5.登录页面：表单验证用户名密码，不通过返回提示，登录成功跳转首页，并隐藏登录注册，欢迎语句变为“hi，userName”
+6，注册页面：用户名、密码做长度限制，用户名验证是否重复，密码复杂度判断，注册失败返回提示，成功跳转到登录页面。

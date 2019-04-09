@@ -67,6 +67,7 @@ export default {
             }}).then(res => {
                 if(res.data.status === 'success'){
                     this.$router.push({name: 'index'})
+                    this.$store.commit('setUserName',this.userName)
                 }else{
                     this.error = res.data.msg
                 }

@@ -5,12 +5,16 @@ Vue.use(Vuex)
 // 公共数据池
 const state ={
     position: {},
+    userName:''
     // productList:[]
 }
 // 操作state
 const mutations ={
     setPosition(state,val){
         state.position = val
+    },
+    setUserName(state,val){
+        state.userName = val
     }
 }
 // 异步操作state
