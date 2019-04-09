@@ -26,13 +26,12 @@
         <el-form-item label="创建密码" prop="password">
           <el-input type="password" v-model="registerForm.password" autocomplete="off" @input="input"></el-input>
           <div class="pw-strength">
-            <div :class="['bar',strengthClass]">
-                <div class="letter">
+            <div :class="['bar',strengthClass]"></div>
+            <div class="letter">
                     <span>弱</span>
                     <span>中</span>
                     <span>强</span>
                 </div>
-            </div>
           </div>
         </el-form-item>
         <el-form-item label="确认密码" prop="rePassword">
@@ -50,6 +49,7 @@
   </div>
 </template>
 <script>
+import api from '@/api/index.js'
 export default {
   data() {
     //   校验用户名
@@ -59,6 +59,7 @@ export default {
         }else if(value.length < 4 || value.length > 16){
             callback(new Error("用户名必须为4-16位的字母数字下划线组成"));
         } else {
+            // console.log(value);            
             callback();
         }
     }
@@ -72,7 +73,9 @@ export default {
         if (this.registerForm.rePassword !== "") {
           this.$refs.registerForm.validateField("rePassword");
         }
+            // console.log(value);
         callback();
+
       }
     };
     // 校验在此输入密码
@@ -82,10 +85,12 @@ export default {
       } else if (value !== this.registerForm.password) {
         callback(new Error("两次输入密码不一致!"));
       } else {
+            // console.log(value);
         callback();
       }
     };
     return {
+      // 要传给后端的数据
       registerForm: {
         userName: "",
         password: "",
@@ -106,15 +111,42 @@ export default {
     };
   },
   methods: {
-    submitForm() {},
+    // 提交数据
+    submitForm() {
+      // console.log( this.$refs);
+      
+      this.$refs.registerForm.validate((valid) => {
+        if(valid){
+          api.register({params:this.registerForm}).then((res)=>{
+            if(res.data.status === 'success'){
+              this.$router.push({name:'login'});
+            } else {
+              alert(res.data.msg)
+            }
+          })
+        } else {
+          console.log('提交错误！');
+          return false
+        }
+      })
+      // console.log(this.$refs);
+      
+    },
     input(){
-    //   let regNtr = ^[0-9a-zA-Z_]{1,}$
-    //   let regNum = /[0-9a-zA-Z_]+/g
-    //   let reg = /_/g    
-      if(this.registerForm.password.length > 10){
+      let reg1 = /[0-9]/g
+      let reg2 = /[a-zA-Z]/g
+      let reg3 =/[_]/g
+      // let reg = /_/g    
+      var strong = this.registerForm.password.match(reg1) && this.registerForm.password.match(reg2) && this.registerForm.password.match(reg3)
+      // console.log(strong);
+      
+      if(this.registerForm.password.length > 20 || this.registerForm.password.length > 6 && strong){
           this.strengthClass = "strong"
-      } 
-    //   else if (this.password.length > 6 &&)
+      } else if (this.registerForm.password.length < 7){
+        this.strengthClass = "week"
+      } else {
+        this.strengthClass = "normal"
+      }
   }
   },
   

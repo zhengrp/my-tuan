@@ -52,8 +52,13 @@ var api = {
     getCurPosition(params){
         return axios.get('/city/getPosition.json',params)
     },
+    // 登录
     login(params){
         return axios.get('/login', params )
+    },
+    // 注册
+    register(params){
+        return axios.get('/register',params)
     }
 }
 export default api

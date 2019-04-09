@@ -47,23 +47,53 @@
     min-height: 300px;
     padding-right: 550px;
     box-sizing: border-box;
-    .letter {
+    .el-form-item{
+      margin-bottom: 25px;
+    }
+    .pw-strength{
       position: relative;
-      top: 5px;
+      top: 10px;
       left: 0;
-      span {
-          display: block;
-          float: left;
-          text-align: center;
-          font-size: 12px;
-          height: 20px;
-          line-height: 20px;
-          width: 108px;
-          border-right: 2px solid #fff;
-          background-color: #eee;
-          color: #fff;
+      width: 330px;
+      background: #eee;
+      .bar{
+        overflow: hidden;
+        height: 20px;
+        width: 0;
+        background: #f76140;
+        transition: all .4s linear;
+        &.week{
+          width: 108px; 
+        }
+        &.normal{
+          width: 218px;
+        }
+        &.strong{
+          width: 330px;
+        }
+      }
+      .letter {
+        position: absolute;
+        top: 0;
+        left: 0;
+        span {
+            display: block;
+            float: left;
+            text-align: center;
+            font-size: 12px;
+            height: 20px;
+            line-height: 20px;
+            width: 108px;
+            border-right: 2px solid #fff;
+            background-color: transparent;
+            color: #fff;
+        }
       }
     }
+    .el-form-item__error{
+      margin-top: 8px;
+    }
+      
     .el-button--primary {
       background-color: #2bb8aa;
       border-color: #2bb8aa;
